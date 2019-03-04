@@ -67,8 +67,12 @@ set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 " Colors & Formatting
 "-------------------------------------------------------------------------------
 
-colorscheme solarized
+set t_Co=256
+
+"colorscheme solarized
+
 set background=dark
+colorscheme railscasts 
 
 " Showcase comments in italics
 highlight Comment cterm=italic gui=italic
@@ -96,7 +100,7 @@ let g:auto_save_in_insert_mode = 0 " do not save in insert mode
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   set termguicolors
-  colorscheme NeoSolarized
+  colorscheme railscasts 
   set background=dark
 
   " Fix vim-tmux-navigator <C-h> https://git.io/viGRU
