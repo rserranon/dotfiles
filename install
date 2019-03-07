@@ -2,8 +2,10 @@
 #
 # bootstrap installs things.
 
+# set it to current directory all symbolic links resolved  
 DOTFILES_ROOT=$(pwd -P)
 
+# stops the execution of a script if a command or pipeline has an error
 set -e
 
 echo ''
@@ -32,6 +34,7 @@ setup_gitconfig () {
     info 'setup gitconfig'
 
     git_credential='cache'
+    # find out if it is a Mac
     if [ "$(uname -s)" == "Darwin" ]
     then
       git_credential='osxkeychain'
@@ -135,8 +138,8 @@ install_dotfiles () {
 
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    dst="$HOME/.$(basename "${src%.*}")" # create destination string based on basename directory
+    link_file "$src" "$dst"              # create te actual link calling link_file
   done
 }
 

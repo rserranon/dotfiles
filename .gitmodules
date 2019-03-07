@@ -4,3 +4,6 @@
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts
+[submodule "vim/vim.symlink/bundle/railscasts-theme"]
+	path = vim/vim.symlink/bundle/railscasts-theme
+	url = git@github.com:jpo/vim-railscasts-theme.git
