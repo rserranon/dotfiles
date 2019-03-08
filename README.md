@@ -24,6 +24,11 @@ Use iterm2 instead of Terminal: http://iterm2.com/
 
 [Ubuntu Mono Derivative Powerline Font](https://github.com/powerline/fonts/archive/master.zip)
 
+1. download the font archive, and unzip it. Go to fonts-master/UbuntuMono/ and install each of the four TTFs: simply double-click and let Font Book install them for you.
+2. Open Terminal, then navigate to Terminal Preferences > Profiles > Font and click the Change button.
+3. Select Ubuntu Mono derivative Powerline and set the font size to your liking.
+4. Close preferences, and quit Terminal.
+
 **Tmux**  Note: WIP Still tryig to fix C-B hotkey on iTerm2 on Mac
 ```
 $ brew install tmux
