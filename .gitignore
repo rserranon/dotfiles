@@ -5,3 +5,4 @@ git/gitconfig.symlink
 ruby/bundle.symlink/cache/
 vim/vim.symlink/plugged
 vim/vim.symlink/undo
+.netrwhist
