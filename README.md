@@ -2,7 +2,7 @@
 
 dotfiles
 ===================
-![screenshot](https://github.com/mscoutermarsh/dotfiles/blob/master/screenshot.png)
+![screenshot](https://github.com/rsrranon/dotfiles/blob/master/screenshot.png)
 (Here's what my setup looks like. Vim/Tmux)
 
 ## New to Vim?
@@ -27,7 +27,7 @@ cd ~/.dotfiles
 **iterm2**
 Use iterm2 instead of Terminal: http://iterm2.com/
 
-**Tmux**
+**Tmux**  WIP Still tryig to fix C-B hotkey on iTerm2 on Mac
 ```
 $ brew install tmux
 $ brew install reattach-to-user-namespace
@@ -39,4 +39,4 @@ $ brew install reattach-to-user-namespace
 
 
 #### Contributing
-Did you have trouble installing this? Could I make the documentation better? Let me know [@mscccc](http://twitter.com/mscccc). Or please fork & create a pull request with your suggestions.
+Did you have trouble installing this? Could I make the documentation better? Let me know [@rserranon](http://twitter.com/StartupsPal). Or please fork & create a pull request with your suggestions.
