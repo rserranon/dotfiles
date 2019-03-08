@@ -8,8 +8,8 @@ then
   defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
   # Set an insanely fast keyboard repeat rate
-  defaults write NSGlobalDomain InitialKeyRepeat -int 20 
-  defaults write NSGlobalDomain KeyRepeat -int 4
+  defaults write NSGlobalDomain InitialKeyRepeat -int 25
+  defaults write NSGlobalDomain KeyRepeat -int 5
 
   # Use list view in all Finder windows by default
   # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
