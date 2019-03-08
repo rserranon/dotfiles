@@ -1,8 +1,8 @@
-![dotfiles](https://raw.githubusercontent.com/mscoutermarsh/dotfiles/master/autobot.jpg)
+![dotfiles](https://raw.githubusercontent.com/rserranon/dotfiles/master/autobot.jpg)
 
 dotfiles
 ===================
-![screenshot](https://github.com/rsrranon/dotfiles/blob/master/screenshot.png)
+![screenshot](https://github.com/rserranon/dotfiles/blob/master/screenshot.png)
 (Here's what my setup looks like. Vim/Tmux)
 
 ## New to Vim?
