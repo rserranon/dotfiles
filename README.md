@@ -22,7 +22,7 @@ cd ~/.dotfiles
 **iterm2**
 Use iterm2 instead of Terminal: http://iterm2.com/
 
-![Ubuntu Mono Derivative Powerline Font](https://github.com/powerline/fonts/archive/master.zip)
+[Ubuntu Mono Derivative Powerline Font](https://github.com/powerline/fonts/archive/master.zip)
 
 **Tmux**  Note: WIP Still tryig to fix C-B hotkey on iTerm2 on Mac
 ```
@@ -33,4 +33,4 @@ $ brew install reattach-to-user-namespace
 
 #### Contributing
 Did you have trouble installing this? Could I make the documentation better? 
-Let me know [@rserranon](http://twitter.com/StartupsPal). Or please fork & create a pull request with your suggestions.
+Let me know [@StartupsPal](http://twitter.com/StartupsPal). Or please fork & create a pull request with your suggestions.
