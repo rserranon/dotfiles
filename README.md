@@ -1,7 +1,7 @@
 dotfiles
 ===================
 ![screenshot](https://github.com/rserranon/dotfiles/blob/master/screenshot.png)
-(Here's what my setup looks like. Vim/Tmux)
+(Here's what my setup looks like. Vim/Oh-My-Zhs/Tmux)
 
 ## New to Vim?
 + [Learning Vim in a Week](https://mikecoutermarsh.com/boston-vim-learning-vim-in-a-week/)
@@ -29,10 +29,26 @@ Use iterm2 instead of Terminal: http://iterm2.com/
 3. Select Ubuntu Mono derivative Powerline and set the font size to your liking.
 4. Close preferences, and quit Terminal.
 
-**Tmux**  Note: WIP Still tryig to fix C-B hotkey on iTerm2 on Mac
+**zsh**
 ```
-$ brew install tmux
-$ brew install reattach-to-user-namespace
+brew install zsh
+
+zsh --version
+
+whereis zsh
+
+
+```
+
+
+**oh-my-zsh**
+
+clone the repository under the ~/dotfiles directory
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+**Tmux**   
+```
+$ brew install Tmux 
 ```
 
 
