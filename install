@@ -2,7 +2,7 @@
 #
 # bootstrap installs things.
 
-# set it to current directory all symbolic links resolved  
+# set it to current directory all symbolic links resolved
 DOTFILES_ROOT=$(pwd -P)
 
 # stops the execution of a script if a command or pipeline has an error
@@ -127,6 +127,7 @@ link_file () {
   if [ "$skip" != "true" ]  # "false" or empty
   then
     ln -s "$1" "$2"
+    printf "Linked $1 to $2\n"
     success "linked $1 to $2"
   fi
 }
@@ -135,7 +136,7 @@ install_dotfiles () {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
-
+  # find all files with *.symling under /dotfiles directory
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")" # create destination string based on basename directory
