@@ -1,7 +1,7 @@
 dotfiles
 ===================
 ![screenshot](https://github.com/rserranon/dotfiles/blob/master/screenshot.png)
-(Here's what my setup looks like. Vim/Oh-My-Zhs/Tmux)
+(Here's what my setup looks like. Vim/Zsh/Oh-My-Zsh/Tmux)
 
 ## New to Vim?
 + [Learning Vim in a Week](https://mikecoutermarsh.com/boston-vim-learning-vim-in-a-week/)
@@ -34,17 +34,15 @@ Use iterm2 instead of Terminal: http://iterm2.com/
 brew install zsh
 
 zsh --version
-
-whereis zsh
-
-
 ```
 
 
 **oh-my-zsh**
 
-clone the repository under the ~/dotfiles directory
+clone the repository under the ~/ directory
+```
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+```
 
 **Tmux**   
 ```
