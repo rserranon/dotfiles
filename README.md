@@ -20,8 +20,10 @@ cd ~/.dotfiles
 ### Recommended
 
 **iterm2**
-Use iterm2 instead of Terminal: http://iterm2.com/
 
+On OS X Use iterm2 instead of Terminal: http://iterm2.com/
+
+Install fonts:
 [Ubuntu Mono Derivative Powerline Font](https://github.com/powerline/fonts/archive/master.zip)
 
 1. download the font archive, and unzip it. Go to fonts-master/UbuntuMono/ and install each of the four TTFs: simply double-click and let Font Book install them for you.
@@ -30,10 +32,17 @@ Use iterm2 instead of Terminal: http://iterm2.com/
 4. Close preferences, and quit Terminal.
 
 **zsh**
+OS X:
 ```
 brew install zsh
 
 zsh --version
+```
+
+Linux:
+```
+sudo apt-get update
+sudo apt-get install zsh 
 ```
 
 
@@ -44,9 +53,18 @@ clone the repository under the ~/ directory
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ```
 
-**Tmux**   
+**Tmux**
+   
+OS X:
 ```
 $ brew install Tmux 
+```
+
+Linux:
+
+```
+sudo apt-get update
+sudo apt-get install tmux
 ```
 
 
