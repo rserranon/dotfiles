@@ -1,0 +1,28 @@
+#!/bin/bash
+SESSION='ElementsProject'
+
+tmux -2 new-session -d -s $SESSION
+
+# create windows
+
+# virtualMachine
+tmux rename-window virtualMachine
+tmux split-window -h
+tmux select-pane -L
+tmux resize-pane -R 30
+
+# flaskApps
+tmux new-window -a -n flaskApps-edit
+tmux split-window -h
+tmux select-pane -L
+tmux resize-pane -R 30
+
+#Aurelia in local machines
+tmux new-window -a -n Aurelia-Local
+tmux split-window -h
+tmux select-pane -L
+
+# select virtualMachine window
+tmux select-window -t virtualMachine
+tmux select-pane -L
+tmux -2 attach -t virtualMachine
