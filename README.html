@@ -34,14 +34,17 @@ sudo apt-get install zsh </code></pre><p><strong>oh-my-zsh</strong></p>
 <pre><code>$ brew install Tmux </code></pre><p>to set up the Tmux environment (several windows and panels) run:</p>
 <pre><code>./.setTmuxGo</code></pre><p>Linux:</p>
 <pre><code>sudo apt-get update
-sudo apt-get install tmux</code></pre><p><strong>ENTR(1)</strong></p>
+sudo apt-get install tmux</code></pre><p><strong>Marked</strong></p>
+<p>a low-level markdown compiler for parsing markdown without cachig or blocking for long periods of time</p>
+<p>Istallation: </p>
+<pre><code>npm install -g marked</code></pre><p><strong>ENTR(1)</strong></p>
 <p>entr -- run arbitrary commands when files change</p>
 <p>Update README.html everytime README.md changes</p>
 <p>Installation OSX:</p>
 <pre><code>brew install entr
 
 ls README.md | entr -s &#39;marked README.md &gt; README.html&#39;
-</code></pre><p>-s option uses the shell interpreter specified by the SHELL environment variable. In our case /bin/zsh </p>
+</code></pre><p>-s option uses the shell interpreter specified by the $SHELL environment variable. In our case /bin/zsh </p>
 <h4 id="contributing">Contributing</h4>
 <p>Did you have trouble installing this? Could I make the documentation better? 
 Let me know <a href="http://twitter.com/StartupsPal">@StartupsPal</a>. Or please fork &amp; create a pull request with your suggestions.</p>

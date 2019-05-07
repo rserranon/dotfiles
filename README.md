@@ -74,6 +74,17 @@ sudo apt-get update
 sudo apt-get install tmux
 ```
 
+**Marked**
+
+a low-level markdown compiler for parsing markdown without cachig or blocking for long periods of time
+
+Istallation: 
+
+```
+npm install -g marked
+```
+
+
 **ENTR(1)**
 
 entr -- run arbitrary commands when files change
@@ -89,7 +100,7 @@ ls README.md | entr -s 'marked README.md > README.html'
 
 ```
 
--s option uses the shell interpreter specified by the SHELL environment variable. In our case /bin/zsh 
+-s option uses the shell interpreter specified by the $SHELL environment variable. In our case /bin/zsh 
 
 
 #### Contributing
