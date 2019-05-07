@@ -29,7 +29,7 @@ set splitright                        " Open new splits to the right
 set splitbelow                        " Open new splits to the bottom
 set lazyredraw                        " Reduce the redraw frequency
 set ttyfast                           " Send more characters in fast terminals
-set nowrap                            " Don't wrap long lines
+set wrap                              " wrap long lines
 set listchars=extends:→               " Show arrow if line continues rightwards
 set listchars+=precedes:←             " Show arrow if line continues leftwards
 set nobackup nowritebackup noswapfile " Turn off backup files
@@ -60,6 +60,7 @@ set wildignore+=*/node_modules/
 "-------------------------------------------------------------------------------
 
 set number            " Enable line numbers
+set norelativenumber  " Turn off relative numbers
 set scrolloff=5       " Leave 5 lines of buffer when scrolling
 set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 

@@ -22,7 +22,14 @@ tmux new-window -a -n Aurelia-Local
 tmux split-window -h
 tmux select-pane -L
 
+
+#Python Data Mining in local machines
+tmux new-window -a -n Python-Data-Analysis
+tmux split-window -h
+tmux select-pane -L
+
 # select virtualMachine window
 tmux select-window -t virtualMachine
 tmux select-pane -L
 tmux -2 attach -t virtualMachine
+

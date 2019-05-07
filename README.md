@@ -17,7 +17,7 @@ cd ~/.dotfiles
 ./install
 ```
 
-### Recommended
+### Recommended tools
 
 **iterm2**
 
@@ -32,6 +32,7 @@ Install fonts:
 4. Close preferences, and quit Terminal.
 
 **zsh**
+
 OS X:
 ```
 brew install zsh
@@ -60,12 +61,35 @@ OS X:
 $ brew install Tmux 
 ```
 
+to set up the Tmux environment (several windows and panels) run:
+
+```
+./.setTmuxGo
+```
+
 Linux:
 
 ```
 sudo apt-get update
 sudo apt-get install tmux
 ```
+
+**ENTR(1)**
+
+entr -- run arbitrary commands when files change
+
+Update README.html everytime README.md changes
+
+Installation OSX:
+
+``` 
+brew install entr
+
+ls README.md | entr -s 'marked README.md > README.html'
+
+```
+
+-s option uses the shell interpreter specified by the SHELL environment variable. In our case /bin/zsh 
 
 
 #### Contributing

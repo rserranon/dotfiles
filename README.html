@@ -1,0 +1,48 @@
+<h1 id="dotfiles">dotfiles</h1>
+<p><img src="https://github.com/rserranon/dotfiles/blob/master/screenshot.png" alt="screenshot">
+(Here&#39;s what my setup looks like. Vim/Zsh/Oh-My-Zsh/Tmux)</p>
+<h2 id="new-to-vim">New to Vim?</h2>
+<ul>
+<li><a href="https://mikecoutermarsh.com/boston-vim-learning-vim-in-a-week/">Learning Vim in a Week</a></li>
+<li><a href="https://upcase.com/vim">Upcase: The Art of Vim</a> </li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Clone this repo (or your own fork!) to your <strong>home</strong> directory (<code>/Users/username</code>).</p>
+<pre><code>git clone https://github.com/rserranon/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+./install</code></pre><h3 id="recommended-tools">Recommended tools</h3>
+<p><strong>iterm2</strong></p>
+<p>On OS X Use iterm2 instead of Terminal: <a href="http://iterm2.com/">http://iterm2.com/</a></p>
+<p>Install fonts:
+<a href="https://github.com/powerline/fonts/archive/master.zip">Ubuntu Mono Derivative Powerline Font</a></p>
+<ol>
+<li>download the font archive, and unzip it. Go to fonts-master/UbuntuMono/ and install each of the four TTFs: simply double-click and let Font Book install them for you.</li>
+<li>Open Terminal, then navigate to Terminal Preferences &gt; Profiles &gt; Font and click the Change button.</li>
+<li>Select Ubuntu Mono derivative Powerline and set the font size to your liking.</li>
+<li>Close preferences, and quit Terminal.</li>
+</ol>
+<p><strong>zsh</strong></p>
+<p>OS X:</p>
+<pre><code>brew install zsh
+
+zsh --version</code></pre><p>Linux:</p>
+<pre><code>sudo apt-get update
+sudo apt-get install zsh </code></pre><p><strong>oh-my-zsh</strong></p>
+<p>clone the repository under the ~/ directory</p>
+<pre><code>git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code></pre><p><strong>Tmux</strong></p>
+<p>OS X:</p>
+<pre><code>$ brew install Tmux </code></pre><p>to set up the Tmux environment (several windows and panels) run:</p>
+<pre><code>./.setTmuxGo</code></pre><p>Linux:</p>
+<pre><code>sudo apt-get update
+sudo apt-get install tmux</code></pre><p><strong>ENTR(1)</strong></p>
+<p>entr -- run arbitrary commands when files change</p>
+<p>Update README.html everytime README.md changes</p>
+<p>Installation OSX:</p>
+<pre><code>brew install entr
+
+ls README.md | entr -s &#39;marked README.md &gt; README.html&#39;
+</code></pre><p>-s option uses the shell interpreter specified by the SHELL environment variable. In our case /bin/zsh </p>
+<h4 id="contributing">Contributing</h4>
+<p>Did you have trouble installing this? Could I make the documentation better? 
+Let me know <a href="http://twitter.com/StartupsPal">@StartupsPal</a>. Or please fork &amp; create a pull request with your suggestions.</p>
+

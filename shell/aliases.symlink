@@ -53,3 +53,6 @@ alias rc="NO_RENDERER=true bin/rails c"
 alias vimrc="vim ~/.vimrc"
 alias vimplugins="vim ~/.dotfiles/vim/vim.symlink/plugin/plugins.vim"
 alias zshrc="vim ~/.zshrc"
+
+# Directory shorcuts
+alias cdsd='cd Dropbox/RSN/SoftwareDevelopment'
