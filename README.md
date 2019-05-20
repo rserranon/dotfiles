@@ -8,7 +8,7 @@ dotfiles
 + [Upcase: The Art of Vim](https://upcase.com/vim) 
 
 
-## Installation
+## Installation 
 
 Clone this repo (or your own fork!) to your **home** directory (`/Users/username`).
 ```
@@ -101,6 +101,12 @@ ls README.md | entr -s 'marked README.md > README.html'
 ```
 
 -s option uses the shell interpreter specified by the $SHELL environment variable. In our case /bin/zsh 
+
+Open, generate/update and refresh README.html in broswer everytime README.md changes
+
+```
+ls README.md|entr -s 'marked README.md > README.html ; open README.html'
+```
 
 
 #### Contributing
