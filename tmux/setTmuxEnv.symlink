@@ -23,7 +23,7 @@ tmux split-window -h
 tmux select-pane -L
 
 
-# Edit README.md
+#Python Data Mining in local machines
 tmux new-window -a -n README-Edit
 tmux split-window -h
 tmux select-pane -L

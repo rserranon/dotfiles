@@ -45,7 +45,9 @@ sudo apt-get install tmux</code></pre><p><strong>Marked</strong></p>
 
 ls README.md | entr -s &#39;marked README.md &gt; README.html&#39;
 </code></pre><p>-s option uses the shell interpreter specified by the $SHELL environment variable. In our case /bin/zsh </p>
-<h4 id="contributing">Contributing</h4>
+<p>Open, generate/update and refresh README.html in broswer everytime README.md changes</p>
+<pre><code>ls README.md|entr -s &#39;marked README.md &gt; README.html ; open README.html&#39;</code></pre><p>Using reload-browser (better option to maintain cursor focus on vim editor), requires <a href="https://github.com/rserranon/reload-browser">reload-browser</a></p>
+<pre><code>ls README.md|entr -s &#39;marked README.md &gt; README.html ; reload-browser safari README&#39;</code></pre><h4 id="contributing">Contributing</h4>
 <p>Did you have trouble installing this? Could I make the documentation better? 
 Let me know <a href="http://twitter.com/StartupsPal">@StartupsPal</a>. Or please fork &amp; create a pull request with your suggestions.</p>
 

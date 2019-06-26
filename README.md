@@ -108,6 +108,11 @@ Open, generate/update and refresh README.html in broswer everytime README.md cha
 ls README.md|entr -s 'marked README.md > README.html ; open README.html'
 ```
 
+Using reload-browser (better option to maintain cursor focus on vim editor), requires [reload-browser](https://github.com/rserranon/reload-browser)
+
+```
+ls README.md|entr -s 'marked README.md > README.html ; reload-browser safari README'
+```
 
 #### Contributing
 Did you have trouble installing this? Could I make the documentation better? 
