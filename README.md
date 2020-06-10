@@ -13,8 +13,15 @@ dotfiles
 Clone this repo (or your own fork!) to your **home** directory (`/Users/username`).
 ```
 git clone https://github.com/rserranon/dotfiles ~/.dotfiles
-cd ~/.dotfiles
+cd ~/dotfiles
 ./install
+
+Start TMUX
+
+TMUX
+
+./.setTmuxEnv
+
 ```
 
 ### Recommended tools
@@ -64,7 +71,7 @@ $ brew install Tmux
 to set up the Tmux environment (several windows and panels) run:
 
 ```
-./.setTmuxGo
+./.setTmuxEnv
 ```
 
 Linux:
