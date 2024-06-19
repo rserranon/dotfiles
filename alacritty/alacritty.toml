@@ -1,0 +1,11 @@
+[window]
+decorations = "Transparent"
+opacity = 0.9
+title = "Alacrity Cope"
+padding = { x = 10, y = 20 }
+dynamic_padding = true
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 18
+[debug] 
+log_level = "Info"
