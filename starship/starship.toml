@@ -1,9 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_orange)\
+[ ](color_orange)\
+[ ](fg:color_orange bg:color_white)\
 $os\
-[  ](bg:color_orange fg:color_fg0)\
 $username\
 [](bg:color_yellow fg:color_orange)\
 $directory\
@@ -11,7 +11,6 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:color_aqua bg:color_blue)\
-$custom\
 $c\
 $rust\
 $golang\
@@ -105,13 +104,6 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
-[custom.cpp]
-detect_extensions = ['cpp', 'hpp']
-symbol = " ++"
-style = "bg:#86BBD8"
-format = '[ $symbol ($output) ]($style)'
-command = "g++ --version | awk 'NR==1 {print $3}'"
 
 [rust]
 symbol = ""
