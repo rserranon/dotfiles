@@ -1,8 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[ ](color_orange)\
-[ ](fg:color_orange bg:color_white)\
+[](color_orange)\
+[ ](fg:color_fg0 bg:color_orange)\
 $os\
 $username\
 [](bg:color_yellow fg:color_orange)\
@@ -92,6 +92,9 @@ style = "bg:color_aqua"
 format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
 
