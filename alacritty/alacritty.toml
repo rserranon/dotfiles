@@ -1,4 +1,5 @@
 [window]
+option_as_alt = "Both"
 decorations = "Transparent"
 opacity = 0.9
 title = "Alacrity Cope"
