@@ -32,8 +32,8 @@ source  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
+if [ -f ~/.config/aliases ]; then
+  source ~/.config/aliases
 fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

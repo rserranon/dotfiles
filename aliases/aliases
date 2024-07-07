@@ -1,0 +1,36 @@
+# Safe delete, requires >brew install trash
+alias rm="trash -Fv"
+alias "sudo rm"="sudo trash"
+
+# Unix
+# 
+alias la="ls -lnaphF, --color=always"
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g ONE="| awk '{ print \$1}'"
+
+alias :w="echo this isn\'t vim 🌟"
+alias :q="echo this isn\'t vim 🌟"
+
+# git
+alias g='git'
+alias gs='git status -sb'
+alias gl='git log --oneline'
+
+# Config Files
+alias vimrc="vim ~/.vimrc"
+alias vimplugins="vim ~/.dotfiles/vim/vim.symlink/plugin/plugins.vim"
+alias zshrc="vim ~/.zshrc"
+
+# Bitcoin
+alias btcreg="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -regtest"
+alias btc-qt="$(echo $HOME)/bitcoin-core/bitcoin/src/qt/bitcoin-qt -regtest"
+alias clireg="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoin-cli -regtest"
+alias btcsig="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -signet"
+alias btcs-qt="$(echo $HOME)/bitcoin-core/bitcoin/src/qt/bitcoin-qt -signet"
+alias clisig="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoin-cli -signet"
