@@ -5,7 +5,23 @@
 source  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Configure zsh history file
+#set history size
+export HISTSIZE=100000
+#save history after logout
+export SAVEHIST=100000
+#history file
+export HISTFILE=~/.zsh_history
+#append into history file
+setopt INC_APPEND_HISTORY
+#save only one command if 2 common are same and consistent
+setopt HIST_IGNORE_DUPS
+#add timestamp for each entry
+setopt EXTENDED_HISTORY 
 
+# autocompletion using arrow keys (based on history)
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
