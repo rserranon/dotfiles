@@ -61,8 +61,8 @@ bindkey '\e[B' history-search-forward
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-if [ -f ~/.config/aliases/aliases ]; then
-  source ~/.config/aliases/aliases
+if [ -f $HOME/dotfiles/aliases/aliases ]; then
+  source $HOME/dotfiles/aliases/aliases
 fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
