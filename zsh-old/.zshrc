@@ -1,6 +1,19 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+#
+# debug script
+# set -x
+# Yarn path
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# Homebrew path
+export PATH="/opt/homebrew/:$PATH" 
+# Node version manager path
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+export XDG_CONFIG_DIRS="$HOME/.config/nvim/init.lua"
+export TMUX_PLUGIN_MANAGER_PATH=~/.tmux/plugins/
 
 source  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -48,10 +61,10 @@ bindkey '\e[B' history-search-forward
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-if [ -f ~/.config/aliases ]; then
-  source ~/.config/aliases
+if [ -f ~/.config/aliases/aliases ]; then
+  source ~/.config/aliases/aliases
 fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG=~/.config/starship.toml
 eval "$(starship init zsh)"

@@ -1,5 +1,5 @@
-[shell]
-program = "/opt/homebrew/bin/tmux"
+# [shell]
+# program = "/opt/homebrew/bin/tmux -t $HOME/.config/tmux.conf"
 [window]
 option_as_alt = "Both"
 decorations = "Transparent"
