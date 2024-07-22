@@ -15,8 +15,25 @@ export NVM_DIR="$HOME/.nvm"
 export XDG_CONFIG_DIRS="$HOME/.config/nvim/init.lua"
 export TMUX_PLUGIN_MANAGER_PATH=~/.tmux/plugins/
 
+# The plugin will auto execute this zvm_config function
+zvm_config() {
+  # Retrieve default cursor styles
+  local icur=$(zvm_cursor_style $ZVM_INSERT_MODE_CURSOR)
+
+  # Append your custom color for your cursor
+  ZVM_INSERT_MODE_CURSOR=$icur'\e\e]12;orange\a'
+}
+
+# Third party add-ons
 source  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
 
 # Configure zsh history file
 #set history size
@@ -68,3 +85,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export STARSHIP_CONFIG=~/.config/starship.toml
 eval "$(starship init zsh)"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
