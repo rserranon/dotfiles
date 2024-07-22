@@ -10,6 +10,7 @@ alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias -g G='| grep'
 alias -g M='| less'
 alias -g ONE="| awk '{ print \$1}'"
@@ -17,15 +18,17 @@ alias -g ONE="| awk '{ print \$1}'"
 alias :w="echo this isn\'t vim 🌟"
 alias :q="echo this isn\'t vim 🌟"
 
+# Bat & Cat
+alias cat='bat -p'
+
 # git
 alias g='git'
 alias gs='git status -sb'
 alias gl='git log --oneline'
 
 # Config Files
-alias vimrc="vim ~/.vimrc"
 alias vimplugins="vim ~/.dotfiles/vim/vim.symlink/plugin/plugins.vim"
-alias zshrc="vim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
 
 # Bitcoin
 alias btcreg="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -regtest"
