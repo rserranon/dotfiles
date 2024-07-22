@@ -1,16 +1,22 @@
 # [shell]
-# program = "/opt/homebrew/bin/tmux -t $HOME/.config/tmux.conf"
+# program = "/opt/homebrew/bin/tmux"
 [window]
 option_as_alt = "Both"
-decorations = "Transparent"
+decorations = "Buttonless"
 opacity = 0.9
 title = "Alacrity Cope"
 padding = { x = 10, y = 20 }
 dynamic_padding = true
+startup_mode = "Windowed"
+[scrolling]
+history = 10000
+multiplier = 3
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 18
-[debug] 
+[debug]
 log_level = "Info"
 [env]
 TERM = "xterm-256color"
+[keyboard]
+# key = 'F' mods = 'Command|Control'  action = 'ToggleFullScre
