@@ -4,7 +4,8 @@ alias "sudo rm"="sudo trash"
 
 # Unix
 # 
-alias la="ls -lnaphF, --color=always"
+alias la="lsd -la"
+alias lt="lsd --tree"
 alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
@@ -21,6 +22,9 @@ alias :q="echo this isn\'t vim 🌟"
 # Bat & Cat
 alias cat='bat -p'
 
+# Rust
+alias cwr="cargo watch -q -c -w src/ -x 'run -q'"
+
 # git
 alias g='git'
 alias gs='git status -sb'
@@ -29,6 +33,7 @@ alias gl='git log --oneline'
 # Config Files
 alias vimplugins="vim ~/.dotfiles/vim/vim.symlink/plugin/plugins.vim"
 alias zshrc="nvim ~/.zshrc"
+
 
 # Bitcoin
 alias btcreg="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -regtest"
