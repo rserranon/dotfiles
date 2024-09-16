@@ -5,6 +5,7 @@ alias "sudo rm"="sudo trash"
 # Unix
 # 
 alias la="lsd -la"
+alias ls="lsd"
 alias lt="lsd --tree"
 alias tlf="tail -f"
 alias ln='ln -v'
