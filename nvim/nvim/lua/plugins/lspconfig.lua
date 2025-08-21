@@ -3,17 +3,22 @@ return {
   opts = {
     setup = {
       pyright = function(_, opts)
+        print("Loading pyright configuration")
         opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
           python = {
             venvPath = vim.fn.stdpath("data") .. "/envs",
             venv = ".venv",
             defaultInterpreterPath = ".venv/bin/python",
             analysis = {
-              typeCheckingMode = "basic",
+              typeCheckingMode = "off",
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
               reportMissingTypeStubs = false,
-              diagnosticMode = "workspace",
+              reportUnknownMemberType = false,
+              reportUnknownVariableType = false,
+              reportUnknownArgumentType = false,
+              reportGeneralTypeIssues = false,
+              diagnosticMode = "openFiles",
             },
           },
         })
