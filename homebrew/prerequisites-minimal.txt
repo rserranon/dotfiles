@@ -4,14 +4,11 @@ fzf
 git-delta
 gnupg
 gnutls
-htop
 jq
-lua
-lua-language-server
-luajit
-luarocks
+lsd
+make
 neovim
-nvm
+python@3.13
 starship
 tmux
 trash
@@ -19,6 +16,4 @@ tree
 zsh-autosuggestions
 zsh-syntax-highlighting
 zsh-vi-mode
-zstd
-alacritty
 font-jetbrains-mono-nerd-font
