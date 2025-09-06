@@ -1,5 +1,5 @@
 # Safe delete, requires >brew install trash
-alias rm="trash -Fv"
+alias rm="trash -v"
 alias "sudo rm"="sudo trash"
 
 # Unix
