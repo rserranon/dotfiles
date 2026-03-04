@@ -3,7 +3,6 @@ return {
   opts = {
     setup = {
       pyright = function(_, opts)
-        print("Loading pyright configuration")
         opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
           python = {
             venvPath = vim.fn.stdpath("data") .. "/envs",

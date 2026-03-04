@@ -1,0 +1,52 @@
+# Taps
+tap "homebrew/cask-fonts"
+
+# --- Core CLI tools ---
+brew "bat"
+brew "colordiff"
+brew "fd"
+brew "fzf"
+brew "git-delta"
+brew "gnupg"
+brew "gnutls"
+brew "htop"
+brew "jq"
+brew "lsd"
+brew "make"
+brew "ripgrep"
+brew "stow"
+brew "tmux"
+brew "trash"
+brew "tree"
+brew "wget"
+brew "zoxide"
+
+# --- Shell ---
+brew "starship"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "zsh-vi-mode"
+
+# --- Languages & runtimes ---
+brew "nvm"
+brew "python@3.13"
+brew "rust"
+brew "lua"
+brew "luajit"
+brew "luarocks"
+
+# --- Development tools ---
+brew "neovim"
+brew "lua-language-server"
+brew "universal-ctags"
+brew "bear"
+brew "llvm"
+
+# --- AI tools ---
+brew "gh"
+
+# --- Fonts ---
+cask "font-jetbrains-mono-nerd-font"
+
+# --- Terminal emulator ---
+cask "alacritty"

@@ -1,102 +1,100 @@
 # dotfiles
 
-This repository is the configuration I use to manage my dotfiles, I use Gnu Stow to manage the symlinks, all the symlinks are created under the $HOME/.config directory as the defined by the target flag, configured in .stowrc file.
+Personal development environment managed with [GNU Stow](https://www.gnu.org/software/stow/). All symlinks target `$HOME/.config` as defined in `.stowrc`.
 
+## What's Included
 
-## Structure of the project
+| Directory   | Description |
+|------------|-------------|
+| `alacritty/` | Terminal emulator config (JetBrains Mono, opacity, 256-color) |
+| `aliases/`   | Shell aliases (git, unix, rust, bitcoin, AI tools) |
+| `git/`       | Git config with delta, aliases, global gitignore |
+| `homebrew/`  | Brewfile with all dependencies |
+| `nvim/`      | Neovim (LazyVim) with AI plugins, LSP, DAP, formatters |
+| `osx/`       | macOS-specific automations |
+| `starship/`  | Starship prompt (Gruvbox Dark theme) |
+| `tmux/`      | Tmux config with TPM, session management, catppuccin |
+| `zsh/`       | Zsh config with vi-mode, fzf, autosuggestions |
 
-```
-.
-├── .gitignore
-├── .stowrc
-├── README.md
-├── alacritty
-│   └── alacritty.toml
-├── aliases
-│   └── aliases
-├── homebrew
-│   ├── prerequisites-minimal.txt
-├── nvim
-│   └── nvim
-├── osx
-│   └── disable-cmd-Q.workflow
-├── starship
-│   └── starship.toml
-├── tmux
-│   └── tmux
-│       ├── README.md
-│       ├── tmux.conf
-│       └── tmux.reset
-└── zsh
-    └── .zshrc 
+## Quick Install
+
+```bash
+git clone https://github.com/rserranon/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
 ```
 
+The install script is idempotent — safe to run multiple times.
 
+## Manual Installation
 
-## Installation
-
-1. First install homebrew
-```
-> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-2. Install stow
-```shell
-> brew install stow
+1. Install Homebrew:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-3. Clone dotfiles (this repository)
-
-```shell
-> git clone https://github.com/rserranon/dotfiles.git
+2. Install packages:
+```bash
+brew bundle --file=homebrew/Brewfile
 ```
 
-4. Create .config directory in $HOME
-```shell
->mkdir .config
+3. Link dotfiles:
+```bash
+cd ~/dotfiles
+stow */ -v2
 ```
 
-5. enter dotfiles directory
- dotfiles
-```shell
-> cd dotfiles
+4. Create minimal `~/.zshrc` (macOS doesn't read from `~/.config`):
+```bash
+echo 'source ~/dotfiles/zsh/.zshrc' > ~/.zshrc
 ```
 
-6. Install dotfiles symlinks using stow
-```shell
-dotfiles> stow */ -v2
+5. Install tmux plugins:
+```bash
+# Start tmux, then press: ` + Ctrl-I
+tmux
 ```
 
-7. Install an individual directory (optional)
-```shell
-dotfiles> stow <directory> -v2
+6. Set up Neovim — plugins install automatically on first launch.
+
+## AI Workflow
+
+### Neovim AI Plugins
+- **GitHub Copilot** (`copilot.lua`): Inline AI completions, auto-triggered on `InsertEnter`
+- **CopilotChat**: AI chat sidebar — `<leader>aa` to toggle, visual select + `<leader>ae` to explain
+- **Avante**: Multi-model AI assistant (Claude, GPT, Copilot) — `<leader>av` to toggle
+
+### Terminal AI
+- `gcs` — GitHub Copilot suggest (shell commands)
+- `gce` — GitHub Copilot explain (shell commands)
+
+### Setup
+```bash
+# Authenticate GitHub Copilot CLI
+gh auth login
+gh extension install github/gh-copilot
+
+# Authenticate Copilot in Neovim
+nvim -c ":Copilot auth"
 ```
 
-8. Install hombrew packages
-```shell
-dotfiles>xargs brew install < homebrew/prerequisites-minimal.txt
-```
+## Key Bindings
 
-9. Start TMUX
+### Tmux (prefix: `` ` ``)
+| Key | Action |
+|-----|--------|
+| `` ` `` + `\|` | Split horizontal |
+| `` ` `` + `-` | Split vertical |
+| `` ` `` + `h/j/k/l` | Navigate panes |
+| `` ` `` + `o` | Session picker (sessionx) |
+| `` ` `` + `Ctrl-I` | Install plugins |
 
-```shell
-> tmux
-```
-
-10. Install Tmx plugins
-
-```shell
-# leader is `
-> <leader> <ctrl> I
-```
-
-11. Create minimal .zshrc file
-## VIP > [Note]
-
-**Since there is no a standard and easy way for Mac to read the .zshrc file from $HOME/.config , we have to create a minimal $HOME/.zshrc file**
-
-```shell
-# source our dotfiles .zshrc file
-source ~/dotfiles/.zshrc
-```
-
+### Neovim
+| Key | Action |
+|-----|--------|
+| `<leader>aa` | Toggle Copilot Chat |
+| `<leader>ae` | Explain selection (visual) |
+| `<leader>ar` | Review selection (visual) |
+| `<leader>av` | Toggle Avante |
+| `<space>b` | Toggle breakpoint |
+| `F1-F5` | Debug controls |

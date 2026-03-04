@@ -3,7 +3,6 @@ alias rm="trash -v"
 alias "sudo rm"="sudo trash"
 
 # Unix
-# 
 alias la="lsd -la"
 alias ls="lsd"
 alias lt="lsd --tree"
@@ -30,11 +29,14 @@ alias cwr="cargo watch -q -c -w src/ -x 'run -q'"
 alias g='git'
 alias gs='git status -sb'
 alias gl='git log --oneline'
+alias gd='git diff'
+alias gco='git checkout'
+alias gp='git push'
+alias gpl='git pull'
 
 # Config Files
-alias vimplugins="vim ~/.dotfiles/vim/vim.symlink/plugin/plugins.vim"
-alias zshrc="nvim ~/.zshrc"
-
+alias zshrc="nvim ~/dotfiles/zsh/.zshrc"
+alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
 
 # Bitcoin
 alias btcreg="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -regtest"
@@ -43,3 +45,8 @@ alias clireg="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoin-cli -regtest"
 alias btcsig="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -signet"
 alias btcs-qt="$(echo $HOME)/bitcoin-core/bitcoin/src/qt/bitcoin-qt -signet"
 alias clisig="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoin-cli -signet"
+
+# AI tools
+alias copilot="gh copilot"
+alias gcs="gh copilot suggest"
+alias gce="gh copilot explain"

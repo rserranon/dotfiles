@@ -1,0 +1,51 @@
+[user]
+	name = Robert Serrano
+	# email = your@email.com
+	# signingkey = YOUR_GPG_KEY_ID
+
+[core]
+	editor = nvim
+	pager = delta
+	excludesfile = ~/.config/git/ignore
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+[diff]
+	colorMoved = default
+	algorithm = histogram
+
+[merge]
+	conflictstyle = zdiff3
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = gruvbox-dark
+
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	ci = commit
+	lg = log --oneline --graph --decorate --all
+	last = log -1 HEAD --stat
+	unstage = reset HEAD --
+	amend = commit --amend --no-edit
+	wip = !git add -A && git commit -m 'WIP'
+
+[rerere]
+	enabled = true

@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor
+*.swp
+*.swo
+*~
+\#*\#
+.#*
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Build
+*.o
+*.so
+*.dylib

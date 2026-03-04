@@ -13,7 +13,7 @@ return {
 
       dap.adapters.lldb = {
         type = "executable",
-        command = "/usr/bin", -- Adjust to the correct path for lldb-vscode
+        command = "/opt/homebrew/opt/llvm/bin/lldb-dap",
         name = "lldb",
       }
 
