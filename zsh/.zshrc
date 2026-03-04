@@ -58,7 +58,10 @@ fi
 
 # --- Starship prompt ---
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship.toml"
-eval "$(starship init zsh)"
+if [[ -z "$STARSHIP_INITIALIZED" ]]; then
+  eval "$(starship init zsh)"
+  export STARSHIP_INITIALIZED=1
+fi
 
 # --- zsh-autosuggestions ---
 if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then

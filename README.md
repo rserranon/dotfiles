@@ -7,12 +7,12 @@ Personal development environment managed with [GNU Stow](https://www.gnu.org/sof
 | Directory   | Description |
 |------------|-------------|
 | `alacritty/` | Terminal emulator config (JetBrains Mono, opacity, 256-color) |
-| `aliases/`   | Shell aliases (git, unix, rust, bitcoin, AI tools) |
+| `aliases/`   | Shell aliases (git, unix, rust, bitcoin, AWS/RDS, AI tools) |
 | `git/`       | Git config with delta, aliases, global gitignore |
 | `homebrew/`  | Brewfile with all dependencies |
 | `nvim/`      | Neovim (LazyVim) with AI plugins, LSP, DAP, formatters |
 | `osx/`       | macOS-specific automations |
-| `starship/`  | Starship prompt (Gruvbox Dark theme) |
+| `starship/`  | Starship prompt (Gruvbox Dark, AWS profile/region indicator) |
 | `tmux/`      | Tmux config with TPM, session management, catppuccin |
 | `zsh/`       | Zsh config with vi-mode, fzf, autosuggestions |
 
@@ -67,6 +67,15 @@ tmux
 ### Terminal AI
 - `gcs` — GitHub Copilot suggest (shell commands)
 - `gce` — GitHub Copilot explain (shell commands)
+
+### AWS & RDS
+- `awswho` — show current AWS identity (`sts get-caller-identity`)
+- `awsuse <profile>` — switch AWS profile and confirm identity
+- `rdsls` — list RDS instances with endpoints
+- `rdsstatus` — quick RDS instance status check
+- `rds-ssm-tunnel <ec2-id> <rds-host>` — SSM port-forward to RDS/proxy
+- `rds-ssh-tunnel <bastion> <rds-host>` — SSH tunnel to RDS/proxy
+- Starship prompt shows active AWS profile and region
 
 ### Setup
 ```bash

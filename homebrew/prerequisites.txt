@@ -19,6 +19,8 @@ certifi
 cffi
 cfn-lint
 cookiecutter
+# PostgreSQL CLI tools (psql, pg_dump, pg_restore without full postgres)
+libpq
 cryptography
 dbeaver-community
 docbook
@@ -158,6 +160,8 @@ p11-kit
 pandoc
 pcre2
 perl
+# PostgreSQL CLI with autocomplete and syntax highlighting
+pgcli
 pinentry
 pinentry-mac
 pkg-config

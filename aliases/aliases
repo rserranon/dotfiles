@@ -46,6 +46,39 @@ alias btcsig="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoind -signet"
 alias btcs-qt="$(echo $HOME)/bitcoin-core/bitcoin/src/qt/bitcoin-qt -signet"
 alias clisig="$(echo $HOME)/bitcoin-core/bitcoin/src/bitcoin-cli -signet"
 
+# AWS
+alias awswho="aws sts get-caller-identity"
+alias awsregion="aws configure get region"
+alias awsprofiles="aws configure list-profiles"
+awsuse() { export AWS_PROFILE="$1"; export AWS_REGION="$(aws configure get region)"; awswho; }
+
+# RDS / PostgreSQL
+alias rdsls="aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,DBInstanceStatus,Endpoint.Address,Engine]' --output table"
+alias rdsstatus="aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,DBInstanceStatus]' --output table"
+
+# RDS tunnel helpers (usage: rds-ssm-tunnel <ec2-id> <rds-host> [local-port])
+rds-ssm-tunnel() {
+  local instance_id="$1" rds_host="$2" local_port="${3:-5432}"
+  if [[ -z "$instance_id" || -z "$rds_host" ]]; then
+    echo "Usage: rds-ssm-tunnel <ec2-instance-id> <rds-proxy-host> [local-port]"
+    return 1
+  fi
+  aws ssm start-session \
+    --target "$instance_id" \
+    --document-name AWS-StartPortForwardingSessionToRemoteHost \
+    --parameters "{\"host\":[\"$rds_host\"],\"portNumber\":[\"5432\"],\"localPortNumber\":[\"$local_port\"]}"
+}
+
+# RDS SSH tunnel (usage: rds-ssh-tunnel <bastion-host> <rds-host> [local-port])
+rds-ssh-tunnel() {
+  local bastion="$1" rds_host="$2" local_port="${3:-5432}"
+  if [[ -z "$bastion" || -z "$rds_host" ]]; then
+    echo "Usage: rds-ssh-tunnel <bastion-host> <rds-proxy-host> [local-port]"
+    return 1
+  fi
+  ssh -N -L "$local_port":"$rds_host":5432 "$bastion"
+}
+
 # AI tools
 alias copilot="gh copilot"
 alias gcs="gh copilot suggest"
