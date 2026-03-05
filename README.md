@@ -8,6 +8,7 @@ Personal development environment managed with [GNU Stow](https://www.gnu.org/sof
 |------------|-------------|
 | `alacritty/` | Terminal emulator config (JetBrains Mono, opacity, 256-color) |
 | `aliases/`   | Shell aliases (git, unix, rust, bitcoin, AWS/RDS, AI tools) |
+| `copilot/`   | Copilot CLI global custom instructions |
 | `git/`       | Git config with delta, aliases, global gitignore |
 | `homebrew/`  | Brewfile with all dependencies |
 | `nvim/`      | Neovim (LazyVim) with AI plugins, LSP, DAP, formatters |

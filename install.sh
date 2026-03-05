@@ -71,6 +71,14 @@ if command -v gh &>/dev/null; then
   fi
 fi
 
+# --- Copilot custom instructions ---
+COPILOT_INSTRUCTIONS="$DOTFILES_DIR/copilot/copilot-instructions.md"
+if [ -f "$COPILOT_INSTRUCTIONS" ]; then
+  mkdir -p "$HOME/.copilot"
+  ln -sf "$COPILOT_INSTRUCTIONS" "$HOME/.copilot/copilot-instructions.md"
+  success "Copilot custom instructions linked"
+fi
+
 # --- Summary ---
 echo ""
 info "=== Setup Complete ==="
