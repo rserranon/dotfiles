@@ -79,6 +79,13 @@ if [ -f "$COPILOT_INSTRUCTIONS" ]; then
   success "Copilot custom instructions linked"
 fi
 
+# --- Markdownlint config ---
+if [ -f "$DOTFILES_DIR/.markdownlint.json" ]; then
+  ln -sf "$DOTFILES_DIR/.markdownlint.json" "$HOME/.markdownlint.json"
+  ln -sf "$DOTFILES_DIR/.markdownlint-cli2.yaml" "$HOME/.markdownlint-cli2.yaml"
+  success "Markdownlint config linked"
+fi
+
 # --- Summary ---
 echo ""
 info "=== Setup Complete ==="
