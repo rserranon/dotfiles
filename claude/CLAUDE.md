@@ -46,4 +46,7 @@
 
 ## Git workflow
 
-    - Always propose commit messages for my review before running git commit
+- Stage changes with `git add` as part of completing work
+- Always show the proposed commit message and wait for explicit approval before running `git commit`
+- Only run `git commit` after the user says something like "yes", "commit", "go ahead", or "proceed"
+- Do not commit autonomously even for trivial changes

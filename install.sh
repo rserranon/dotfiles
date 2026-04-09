@@ -114,6 +114,13 @@ if [ -f "$COPILOT_INSTRUCTIONS" ]; then
   success "Copilot custom instructions linked"
 fi
 
+# --- Git hooks ---
+HOOKS_DIR="$DOTFILES_DIR/.git/hooks"
+if [ -d "$HOOKS_DIR" ]; then
+  ln -sf "$DOTFILES_DIR/scripts/pre-commit.sh" "$HOOKS_DIR/pre-commit"
+  success "pre-commit hook linked"
+fi
+
 # --- Markdownlint config ---
 if [ -f "$DOTFILES_DIR/.markdownlint.json" ]; then
   ln -sf "$DOTFILES_DIR/.markdownlint.json" "$HOME/.markdownlint.json"

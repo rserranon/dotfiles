@@ -208,7 +208,7 @@ JetBrainsMono Nerd Font 18pt. Opacity 0.9. `option_as_alt = "Both"`. `TERM=xterm
 Conventional Commits enforced. Format: `type: lowercase imperative subject` (no period, ≤72 chars).
 
 Types used in this repo:
-  - **feat**: 5 commits
+  - **feat**: 6 commits
   - **docs**: 3 commits
   - **test**: 1 commits
   - **fix**: 1 commits
@@ -253,6 +253,7 @@ These files change most frequently — most likely to need attention after any r
 
 | Hash | Date | Message |
 |------|------|---------|
+| `7f8bdd6` | 2026-04-09 | feat: add auto-updating CLAUDE.md system |
 | `e483114` | 2026-04-09 | test: add dotfiles test suite with make test-dotfiles |
 | `07f676a` | 2026-04-09 | docs: update CLAUDE.md with session changes |
 | `2fcc6ff` | 2026-04-09 | docs: update README and CLAUDE.md to reflect current state |
@@ -262,7 +263,6 @@ These files change most frequently — most likely to need attention after any r
 | `e9cfc88` | 2026-04-09 | feat: add Claude Code CLI integration |
 | `e8f9118` | 2026-03-24 | fix: remove starship init guard that breaks tmux session restore |
 | `3811144` | 2026-03-06 | feat: add markdownlint-cli2 configuration |
-| `8720b60` | 2026-03-05 | feat: add Copilot CLI custom instructions and commit message alias |
 ---
 
 ## Testing
