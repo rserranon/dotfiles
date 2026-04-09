@@ -8,6 +8,7 @@ Personal development environment managed with [GNU Stow](https://www.gnu.org/sof
 |------------|-------------|
 | `alacritty/` | Terminal emulator config (JetBrains Mono, opacity, 256-color) |
 | `aliases/`   | Shell aliases (git, unix, rust, bitcoin, AWS/RDS, AI tools) |
+| `claude/`    | Claude Code global config (CLAUDE.md, settings.json, local marketplace) |
 | `copilot/`   | Copilot CLI global custom instructions |
 | `git/`       | Git config with delta, aliases, global gitignore |
 | `homebrew/`  | Brewfile with all dependencies |
@@ -68,6 +69,13 @@ tmux
 ### Terminal AI
 - `gcs` — GitHub Copilot suggest (shell commands)
 - `gce` — GitHub Copilot explain (shell commands)
+- `gcai` — generate conventional commit message from staged diff (via Copilot)
+
+### Claude Code
+- `cc` — `claude` (open Claude Code)
+- `ccc` — `claude --continue` (resume last session)
+- `ccr` — `claude --resume` (pick a past session)
+- `ccp` — `claude --print` (non-interactive output)
 
 ### AWS & RDS
 - `awswho` — show current AWS identity (`sts get-caller-identity`)
@@ -86,6 +94,9 @@ gh extension install github/gh-copilot
 
 # Authenticate Copilot in Neovim
 nvim -c ":Copilot auth"
+
+# Authenticate Claude Code
+claude
 ```
 
 ## Key Bindings
@@ -96,6 +107,9 @@ nvim -c ":Copilot auth"
 | `` ` `` + `\|` | Split horizontal |
 | `` ` `` + `-` | Split vertical |
 | `` ` `` + `h/j/k/l` | Navigate panes |
+| `` ` `` + `a` | Open Claude Code (vertical split) |
+| `` ` `` + `p` | Floax floating pane |
+| `` ` `` + `v` | Enter copy mode |
 | `` ` `` + `o` | Session picker (sessionx) |
 | `` ` `` + `Ctrl-I` | Install plugins |
 
@@ -103,8 +117,13 @@ nvim -c ":Copilot auth"
 | Key | Action |
 |-----|--------|
 | `<leader>aa` | Toggle Copilot Chat |
+| `<leader>ac` | Open Claude Code terminal |
 | `<leader>ae` | Explain selection (visual) |
+| `<leader>af` | Fix selection (visual) |
+| `<leader>ao` | Optimize selection (visual) |
 | `<leader>ar` | Review selection (visual) |
+| `<leader>at` | Generate tests (visual) |
+| `<leader>ad` | Generate docs (visual) |
 | `<leader>av` | Toggle Avante |
 | `<space>b` | Toggle breakpoint |
 | `F1-F5` | Debug controls |

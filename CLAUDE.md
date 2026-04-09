@@ -33,7 +33,7 @@ Each directory maps directly to `~/.config/<dir>/`. Example: `nvim/nvim/init.lua
 
 **Exceptions** (special symlink targets outside `~/.config`):
 - `zsh/.zshrc` → macOS reads `~/.zshrc` directly; `install.sh` creates `~/.zshrc` that sources `~/dotfiles/zsh/.zshrc`
-- `claude/CLAUDE.md` + `claude/settings.json` → `~/.claude/` (Claude Code config)
+- `claude/CLAUDE.md` + `claude/settings.json` + `claude/local-marketplace` → `~/.claude/` (Claude Code config)
 - `copilot/copilot-instructions.md` → `~/.copilot/`
 - `.markdownlint.json` / `.markdownlint-cli2.yaml` → `~/`
 - TPM → `~/.tmux/plugins/tpm` (installed via `git clone`)
@@ -45,7 +45,7 @@ Each directory maps directly to `~/.config/<dir>/`. Example: `nvim/nvim/init.lua
 - **`zsh/`** — Loads secrets from `~/.config/secrets` (not stowed; created manually). Sets `XDG_CONFIG_HOME`, `EDITOR`, `PATH`
 - **`aliases/`** — Covers git, Unix, cargo, Bitcoin regtest/signet, AWS/RDS, and AI CLI tools
 - **`git/`** — XDG-compliant (`~/.config/git/config`). Uses delta with gruvbox-dark theme and side-by-side diffs
-- **`claude/`** — Global Claude Code config (CLAUDE.md + settings.json). install.sh symlinks these to `~/.claude/`
+- **`claude/`** — Global Claude Code config (CLAUDE.md, settings.json, local-marketplace). install.sh symlinks these to `~/.claude/` and installs the dotfiles-tools plugin
 
 ### Secrets
 
