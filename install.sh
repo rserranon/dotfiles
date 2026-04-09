@@ -97,6 +97,12 @@ if [ -f "$DOTFILES_DIR/claude/settings.json" ]; then
   success "Claude Code settings.json linked"
 fi
 
+if [ -f "$DOTFILES_DIR/claude/statusline.sh" ]; then
+  ln -sf "$DOTFILES_DIR/claude/statusline.sh" "$CLAUDE_DIR/statusline.sh"
+  chmod +x "$CLAUDE_DIR/statusline.sh"
+  success "Claude Code statusline.sh linked"
+fi
+
 if [ -d "$DOTFILES_DIR/claude/local-marketplace" ]; then
   ln -sf "$DOTFILES_DIR/claude/local-marketplace" "$CLAUDE_DIR/local-marketplace"
   success "Claude Code local marketplace linked"

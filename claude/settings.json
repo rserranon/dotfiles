@@ -22,6 +22,11 @@
     "lua-lsp@claude-plugins-official": true,
     "dotfiles-tools@local-dotfiles": true
   },
+  "vim": true,
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
   "extraKnownMarketplaces": {
     "local-dotfiles": {
       "source": {
