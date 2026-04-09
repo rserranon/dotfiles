@@ -1,4 +1,9 @@
 # --- Secrets (not committed) ---
+# ~/.config/secrets should NOT export ANTHROPIC_API_KEY while using Claude Code
+# via OAuth (claude.ai subscription) — having both set causes an auth conflict.
+# Current setup uses OAuth for Claude Code and Copilot for Avante, so the key
+# is unused. Re-enable only if switching Avante to provider="claude" or doing
+# direct API work. See: claude/CLAUDE.md → Secrets section.
 [[ -f "$HOME/.config/secrets" ]] && source "$HOME/.config/secrets"
 
 # --- Environment ---
