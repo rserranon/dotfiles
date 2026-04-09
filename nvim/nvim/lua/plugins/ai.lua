@@ -80,7 +80,7 @@ return {
     keys = {
       {
         "<leader>ac",
-        function() Snacks.terminal("claude") end,
+        function() Snacks.terminal("env -u ANTHROPIC_API_KEY claude") end,
         desc = "Open Claude Code",
       },
     },
