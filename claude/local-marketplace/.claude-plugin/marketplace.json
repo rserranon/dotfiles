@@ -1,0 +1,14 @@
+{
+  "name": "local-dotfiles",
+  "description": "Personal dotfiles plugins",
+  "owner": {
+    "name": "robert"
+  },
+  "plugins": [
+    {
+      "name": "dotfiles-tools",
+      "description": "Personal dotfiles utilities and skills",
+      "source": "./plugins/dotfiles-tools"
+    }
+  ]
+}

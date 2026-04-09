@@ -1,6 +1,6 @@
 *.log
 *.json
-!claude/settings.json
+!claude/**/*.json
 .secrets
 .env
 .env.*

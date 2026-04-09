@@ -99,6 +99,28 @@ nvim -c ":Copilot auth"
 claude
 ```
 
+## Testing
+
+```bash
+make test-dotfiles
+```
+
+Runs 6 test suites (116 checks total):
+
+| Suite | What's checked |
+|-------|----------------|
+| JSON syntax | `claude/settings.json`, marketplace plugin configs |
+| Zsh config | `zsh -n` syntax, brew plugin files, required binaries |
+| Tmux config | Runtime syntax, duplicate keybindings, expected keys present |
+| Neovim/Lua | `luac -p` on all 16 lua files, duplicate keymap detection, hardcoded paths |
+| Tool availability | All Brewfile formulas + casks installed, key binaries in PATH |
+| Stow layout | Package dirs, symlink targets, `~/.zshrc` bootstrap, tracked marketplace JSONs |
+
+**When to run:**
+- After modifying any config file
+- After adding tools to the Brewfile
+- On a new machine after `./install.sh`
+
 ## Key Bindings
 
 ### Tmux (prefix: `` ` ``)
