@@ -1,3 +1,6 @@
+# --- Secrets (not committed) ---
+[[ -f "$HOME/.config/secrets" ]] && source "$HOME/.config/secrets"
+
 # --- Environment ---
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"

@@ -52,6 +52,8 @@ return {
   },
 
   -- Avante: AI-powered code assistant (supports Claude, GPT, Copilot)
+  -- To switch to direct Claude API: set provider = "claude" and add
+  -- ANTHROPIC_API_KEY to ~/.config/secrets (see claude.claude.model below)
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -65,9 +67,22 @@ return {
     },
     opts = {
       provider = "copilot",
+      -- claude = { model = "claude-sonnet-4-5-20251001", max_tokens = 8096 },
     },
     keys = {
       { "<leader>av", "<cmd>AvanteToggle<cr>", desc = "Toggle Avante" },
+    },
+  },
+
+  -- Claude Code: open CLI in a terminal buffer
+  {
+    "folke/snacks.nvim",
+    keys = {
+      {
+        "<leader>ac",
+        function() Snacks.terminal("claude") end,
+        desc = "Open Claude Code",
+      },
     },
   },
 }
