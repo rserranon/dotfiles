@@ -86,7 +86,7 @@ alias gce="gh copilot explain"
 alias gcai="git diff --cached | command copilot -p 'write a conventional commit message for this diff'"
 
 # Claude Code
-alias cc="claude"
-alias ccc="claude --continue"
-alias ccr="claude --resume"
-alias ccp="claude --print"
+alias cc="env -u ANTHROPIC_API_KEY claude"
+alias ccc="env -u ANTHROPIC_API_KEY claude --continue"
+alias ccr="env -u ANTHROPIC_API_KEY claude --resume"
+alias ccp="env -u ANTHROPIC_API_KEY claude --print"
