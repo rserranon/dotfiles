@@ -41,12 +41,24 @@ Each directory maps directly to `~/.config/<dir>/`. Example: `nvim/nvim/init.lua
 ### Config Packages
 
 - **`nvim/`** — LazyVim-based Neovim. Plugins in `nvim/nvim/lua/plugins/`: `ai.lua` (Copilot, CopilotChat, Avante, Claude terminal), `lspconfig.lua`, `formatting.lua`, `nvimdap.lua`, `rustacean.lua`
-- **`tmux/`** — TPM-managed. Prefix is backtick. `` ` ``+`a` opens Claude Code in a vertical split
+- **`tmux/`** — TPM-managed. Prefix is backtick. `` ` ``+`a` opens Claude Code in a vertical split; `` ` ``+`p` Floax floating pane; `` ` ``+`o` sessionx picker
 - **`zsh/`** — Loads secrets from `~/.config/secrets` (not stowed; created manually). Sets `XDG_CONFIG_HOME`, `EDITOR`, `PATH`
-- **`aliases/`** — Covers git, Unix, cargo, Bitcoin regtest/signet, AWS/RDS, and AI CLI tools
+- **`aliases/`** — Covers git, Unix, cargo, Bitcoin regtest/signet, AWS/RDS, and AI CLI tools. Claude Code aliases: `cc`, `ccc`, `ccr`, `ccp`
 - **`git/`** — XDG-compliant (`~/.config/git/config`). Uses delta with gruvbox-dark theme and side-by-side diffs
 - **`claude/`** — Global Claude Code config (CLAUDE.md, settings.json, local-marketplace). install.sh symlinks these to `~/.claude/` and installs the dotfiles-tools plugin
+
+### Local Claude Marketplace
+
+`claude/local-marketplace/` is a local Claude Code plugin marketplace with a single plugin:
+
+- **`dotfiles-tools`** — personal dotfiles utilities
+  - `/dotfiles-tools:dotfiles-check` — health check: validates config files, keybindings, symlinks, .gitignore, stray files, and Brewfile tool availability
 
 ### Secrets
 
 `~/.config/secrets` is sourced by `.zshrc` for API keys (`ANTHROPIC_API_KEY`, AWS credentials, etc.). This file is not in the repo.
+
+### .gitignore Conventions
+
+- `*.json` is ignored globally with an exception for `claude/settings.json`
+- Secrets patterns: `.secrets`, `.env`, `.env.*`, `*.key`, `secrets/`
