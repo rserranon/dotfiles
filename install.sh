@@ -71,6 +71,32 @@ if command -v gh &>/dev/null; then
   fi
 fi
 
+# --- Claude Code CLI ---
+if command -v node &>/dev/null; then
+  if ! command -v claude &>/dev/null; then
+    info "Installing Claude Code CLI..."
+    npm install -g @anthropic-ai/claude-code
+    success "Claude Code installed"
+  else
+    success "Claude Code already installed"
+  fi
+else
+  warn "Node.js not found — skipping Claude Code install (requires npm)"
+fi
+
+CLAUDE_DIR="$HOME/.claude"
+mkdir -p "$CLAUDE_DIR"
+
+if [ -f "$DOTFILES_DIR/claude/CLAUDE.md" ]; then
+  ln -sf "$DOTFILES_DIR/claude/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
+  success "Claude Code CLAUDE.md linked"
+fi
+
+if [ -f "$DOTFILES_DIR/claude/settings.json" ]; then
+  ln -sf "$DOTFILES_DIR/claude/settings.json" "$CLAUDE_DIR/settings.json"
+  success "Claude Code settings.json linked"
+fi
+
 # --- Copilot custom instructions ---
 COPILOT_INSTRUCTIONS="$DOTFILES_DIR/copilot/copilot-instructions.md"
 if [ -f "$COPILOT_INSTRUCTIONS" ]; then
@@ -96,4 +122,5 @@ echo "  2. Start tmux and install plugins: tmux, then press \` + Ctrl-I"
 echo "  3. Open nvim — plugins will auto-install on first launch"
 echo "  4. Run :Copilot auth in nvim to authenticate GitHub Copilot"
 echo "  5. Edit git config: nvim ~/.config/git/config (set email, GPG key)"
+echo "  6. Run 'claude' to authenticate Claude Code via OAuth"
 echo ""
