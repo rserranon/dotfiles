@@ -97,6 +97,15 @@ if [ -f "$DOTFILES_DIR/claude/settings.json" ]; then
   success "Claude Code settings.json linked"
 fi
 
+if [ -d "$DOTFILES_DIR/claude/local-marketplace" ]; then
+  ln -sf "$DOTFILES_DIR/claude/local-marketplace" "$CLAUDE_DIR/local-marketplace"
+  success "Claude Code local marketplace linked"
+  if command -v claude &>/dev/null; then
+    claude plugin install dotfiles-tools@local-dotfiles --scope user 2>/dev/null || true
+    success "Claude Code dotfiles-tools plugin installed"
+  fi
+fi
+
 # --- Copilot custom instructions ---
 COPILOT_INSTRUCTIONS="$DOTFILES_DIR/copilot/copilot-instructions.md"
 if [ -f "$COPILOT_INSTRUCTIONS" ]; then

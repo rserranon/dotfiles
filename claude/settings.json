@@ -19,6 +19,15 @@
     "deny": []
   },
   "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "dotfiles-tools@local-dotfiles": true
+  },
+  "extraKnownMarketplaces": {
+    "local-dotfiles": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/robert/.claude/local-marketplace"
+      }
+    }
   }
 }

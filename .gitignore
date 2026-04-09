@@ -1,3 +1,8 @@
 *.log
 *.json
 !claude/settings.json
+.secrets
+.env
+.env.*
+*.key
+secrets/
