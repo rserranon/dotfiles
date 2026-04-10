@@ -22,7 +22,7 @@
     "lua-lsp@claude-plugins-official": true,
     "dotfiles-tools@local-dotfiles": true
   },
-  "vim": true,
+  "editorMode": "vim",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
