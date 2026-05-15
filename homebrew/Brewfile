@@ -26,6 +26,7 @@ brew "zsh-vi-mode"
 
 # --- Languages & runtimes ---
 brew "nvm"
+brew "pipx"
 brew "python@3.13"
 brew "rust"
 brew "lua"
