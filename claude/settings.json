@@ -18,14 +18,16 @@
     ],
     "deny": []
   },
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true,
-    "dotfiles-tools@local-dotfiles": true
-  },
-  "editorMode": "vim",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true,
+    "dotfiles-tools@local-dotfiles": true,
+    "wiki@llm-wiki": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "local-dotfiles": {
@@ -33,6 +35,13 @@
         "source": "directory",
         "path": "/Users/robert/.claude/local-marketplace"
       }
+    },
+    "llm-wiki": {
+      "source": {
+        "source": "github",
+        "repo": "nvk/llm-wiki"
+      }
     }
-  }
+  },
+  "editorMode": "vim"
 }

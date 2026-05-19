@@ -43,6 +43,12 @@ brew "llvm"
 # --- AI tools ---
 brew "gh"
 
+# --- Agent sandboxing & secrets ---
+tap "nvk/tap"
+brew "nvk/tap/agent-bondage"  # agent restriction wrapper
+brew "nono"                    # sandbox layer
+brew "envchain"                # keychain-backed secret release
+
 # --- Fonts ---
 cask "font-jetbrains-mono-nerd-font"
 
