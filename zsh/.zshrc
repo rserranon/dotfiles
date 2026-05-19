@@ -18,6 +18,29 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
+# Disable claude autoupdater
+DISABLE_AUTOUPDATER=1
+
+# --- Bondage pin drift heartbeat ---
+# Stale pins only surface when `claude` refuses to launch; this runs `bondage
+# doctor` once per calendar day and prints a single yellow warning on drift.
+# Silent when clean or when bondage isn't installed.
+if command -v bondage &>/dev/null; then
+  _BONDAGE_CONF="$HOME/.config/bondage/bondage.conf"
+  _BONDAGE_STAMP="$HOME/.cache/dotfiles-bondage-doctor-stamp"
+  if [[ -f $_BONDAGE_CONF ]]; then
+    mkdir -p "${_BONDAGE_STAMP:h}"
+    if [[ ! -f $_BONDAGE_STAMP ]] || \
+       [[ $(date -r "$_BONDAGE_STAMP" +%Y%m%d 2>/dev/null) != $(date +%Y%m%d) ]]; then
+      if ! bondage doctor "$_BONDAGE_CONF" 2>/dev/null | grep -q "status: clean"; then
+        print -P "%F{yellow}[bondage] pin drift — run: bondage doctor $_BONDAGE_CONF%f"
+      fi
+      touch "$_BONDAGE_STAMP"
+    fi
+  fi
+  unset _BONDAGE_CONF _BONDAGE_STAMP
+fi
+
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"

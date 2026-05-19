@@ -86,6 +86,7 @@ alias gce="gh copilot explain"
 alias gcai="git diff --cached | command copilot -p 'write a conventional commit message for this diff'"
 
 # Claude Code
+alias claude='bondage exec claude /Users/robert/.config/bondage/bondage.conf --'
 alias cc="claude"
 alias ccc="claude --continue"
 alias ccr="claude --resume"

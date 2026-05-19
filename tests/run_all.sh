@@ -29,6 +29,7 @@ run_suite test_tmux.sh  "Tmux config"
 run_suite test_nvim.sh  "Neovim/Lua"
 run_suite test_tools.sh "Tool availability"
 run_suite test_stow.sh  "Stow layout"
+run_suite test_bondage.sh "Bondage"
 
 echo ""
 echo "══════════════════════════════════════"
