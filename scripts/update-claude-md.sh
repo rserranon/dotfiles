@@ -136,6 +136,7 @@ Note: `claude`, `copilot`, `osx` are **not** in the stow loop — handled with e
 | `zsh/.zshrc` | `~/.zshrc` sources it | macOS reads `~/.zshrc` directly |
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | global Claude Code context |
 | `claude/settings.json` | `~/.claude/settings.json` | Claude Code permissions |
+| `claude/statusline.sh` | `~/.claude/statusline.sh` | Claude Code status line script |
 | `claude/local-marketplace` | `~/.claude/local-marketplace` | local plugin marketplace |
 | `copilot/copilot-instructions.md` | `~/.copilot/` | Copilot CLI custom prompt |
 | `.markdownlint.json` | `~/` | markdownlint config |

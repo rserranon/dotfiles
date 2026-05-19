@@ -27,7 +27,8 @@
     "lua-lsp@claude-plugins-official": true,
     "dotfiles-tools@local-dotfiles": true,
     "wiki@llm-wiki": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "nono@always-further": true
   },
   "extraKnownMarketplaces": {
     "local-dotfiles": {
