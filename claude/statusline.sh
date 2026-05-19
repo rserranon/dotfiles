@@ -52,9 +52,35 @@ if [[ $rate -gt 0 ]]; then
   rate_segment=" ${SURFACE}·${RESET} 5hr ${SURFACE}${rate}%${RESET}"
 fi
 
+# Bondage pin status (cached, 5-min TTL). Re-runs `bondage doctor` only when
+# the cache is missing or older than 300s; status line refreshes too often
+# to hash binaries on every render.
+bondage_segment=""
+if command -v bondage &>/dev/null; then
+  bondage_cache="$HOME/.cache/dotfiles-bondage-status"
+  bondage_conf="$HOME/.config/bondage/bondage.conf"
+  mkdir -p "$(dirname "$bondage_cache")"
+  age=$(( $(date +%s) - $(stat -f %m "$bondage_cache" 2>/dev/null || echo 0) ))
+  if [[ ! -f $bondage_cache || $age -gt 300 ]]; then
+    if [[ ! -f $bondage_conf ]]; then
+      echo "error" > "$bondage_cache"
+    elif bondage doctor "$bondage_conf" 2>/dev/null | grep -q "status: clean"; then
+      echo "clean" > "$bondage_cache"
+    else
+      echo "stale" > "$bondage_cache"
+    fi
+  fi
+  case "$(cat "$bondage_cache" 2>/dev/null)" in
+    clean) bondage_segment=" ${SURFACE}·${RESET} bnd ${GREEN}●${RESET}"  ;;
+    stale) bondage_segment=" ${SURFACE}·${RESET} bnd ${RED}●${RESET}"    ;;
+    *)     bondage_segment=" ${SURFACE}·${RESET} bnd ${YELLOW}●${RESET}" ;;
+  esac
+fi
+
 printf "${MAUVE}%s${RESET}" "$model"
 printf " ${SURFACE}·${RESET} ${BLUE}%s${RESET}" "$dir"
 printf " ${SURFACE}·${RESET} ctx ${ctx_color}%s%%%s ${SURFACE}%s${RESET}" "$ctx" "$RESET" "$bar"
 printf " ${SURFACE}·${RESET} ${PEACH}\$%s${RESET}" "$cost"
 printf "%s" "$rate_segment"
-printf "%s\n" "$vim_badge"
+printf "%s" "$vim_badge"
+printf "%s\n" "$bondage_segment"
