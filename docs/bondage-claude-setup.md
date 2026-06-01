@@ -49,6 +49,17 @@ exact binary, these exact secrets, this exact sandbox profile — every time.
 - `claude-code` profile — pulled from the nono registry:
   `nono pull always-further/claude`, installed at
   `~/.config/nono/packages/always-further/claude/profiles/claude.json`
+- `claude-local` overlay — user-owned profile at
+  `~/.config/nono/profiles/claude-local.json` that `extends` the registry
+  `claude` profile and grants read access to `~/dotfiles/claude` (the real
+  target of the `~/.claude/{settings.json,statusline.sh,CLAUDE.md,local-marketplace}`
+  symlinks — without it those resolve outside the sandbox and global config +
+  the status line only work when cwd is dotfiles), read access to
+  `~/.config/bondage`, and read+write to `~/.cache/dotfiles-bondage-status`.
+  Authored as a draft in `~/.config/nono/profile-drafts/claude-local.json`
+  and applied with `nono profile promote claude-local`. The promote step writes
+  into the read-only `profiles/` dir, so run it from a normal terminal, not from
+  inside a sandboxed Claude session.
 
 ## Config files
 
@@ -61,12 +72,15 @@ Use `bondage repin` instead (see Maintenance below).
 Key sections:
 
 - `[global]` — paths and hashes for `nono` and `envchain`. Also
-  `nono_profile_root`, which points at the directory containing the nono
-  profile JSON file. We point this at the registry package directory directly:
-  `/Users/robert/.config/nono/packages/always-further/claude/profiles`. This
-  means bondage looks for `<root>/<profile_name>.json` — and the file is named
-  `claude.json`, so the profile config uses `nono_profile = claude` (not
-  `claude-code`, even though `nono profile list` displays it that way).
+  `nono_profile_root`, which points at `~/.config/nono/profiles` (the user
+  profile directory). We use a local overlay, `claude-local`, that `extends`
+  the registry profile `claude` and adds the paths the dotfiles setup needs:
+  read access to `~/dotfiles/claude` (the symlink targets behind `~/.claude`),
+  read access to `~/.config/bondage`, and read+write to
+  `~/.cache/dotfiles-bondage-status`. The profile config therefore uses
+  `nono_profile = claude-local`. The `extends: claude` chain resolves through
+  nono's own profile lookup, which finds the registry profile at
+  `~/.config/nono/packages/always-further/claude/profiles/claude.json`.
 - `[defaults "agent-nono"]` — shared nono sandbox settings (allow workdir,
   allow `/dev/tty`, etc.).
 - `[defaults "claude-target"]` — the pinned Claude Code binary path and hash.
@@ -173,8 +187,11 @@ nono's errors where `chain` hides them.
 **`nono: Profile read error: profile file not found`.**
 The `nono_profile_root` in `[global]` and the `nono_profile` in
 `[profile "claude"]` don't combine to a real file path. Check
-`ls $nono_profile_root/$nono_profile.json`. If the nono registry has moved
-the file, update `nono_profile_root` to match.
+`ls $nono_profile_root/$nono_profile.json`. If you authored a draft profile
+(e.g. `claude-local`) that hasn't been applied, run
+`nono profile promote <name>` to move it from `~/.config/nono/profile-drafts/`
+into `~/.config/nono/profiles/`. If the nono registry has moved the file,
+update `nono_profile_root` to match.
 
 **`bondage doctor` says `status: stale`.**
 A pinned binary changed. Run the suggested repin command, then doctor again.
@@ -191,12 +208,28 @@ Check `type claude` to see what the alias actually expands to. It must reference
 the correct config path and use `exec`, not `chain`. The alias is defined in
 `~/dotfiles/aliases/aliases`.
 
+**Status line (or other global config) only shows in the dotfiles repo.**
+The `~/.claude/{settings.json,statusline.sh,CLAUDE.md,local-marketplace}` entries
+are symlinks whose real targets live under `~/dotfiles/claude`. The nono sandbox
+grants the current working directory (readwrite) plus a fixed allow-list, so
+those targets are only reachable when cwd is `~/dotfiles` — which is why the
+status line and global config worked there and nowhere else. Fix: the
+`claude-local` overlay grants read access to `$HOME/dotfiles/claude`. Confirm a
+target resolves regardless of cwd with
+`nono why -p claude-local --read ~/dotfiles/claude --path ~/dotfiles/claude/statusline.sh --op read`
+(expect `ALLOWED`). The new grant takes effect on the next `claude` launch.
+
 ## Files this setup touches
 
 - `~/.config/bondage/bondage.conf` — bondage config (hash pins, profile refs)
 - `~/.config/bondage/bondage.conf.bak` — manual backup before edits
 - `~/.config/nono/packages/always-further/claude/` — registry-installed nono
   profile, managed by `nono pull`
+- `~/.config/nono/profiles/claude-local.json` — user overlay that the bondage
+  config actually targets (extends the registry `claude` profile). Authored
+  in `~/.config/nono/profile-drafts/claude-local.json` and applied with
+  `nono profile promote claude-local`, which moves the JSON into the user
+  profiles directory.
 - `~/.local/share/claude/versions/X.Y.Z` — Claude Code binaries (one per
   installed version, oldest versions can be deleted to save space)
 - `~/dotfiles/aliases/aliases` — the `claude` alias
