@@ -52,6 +52,19 @@ if [[ $rate -gt 0 ]]; then
   rate_segment=" ${SURFACE}·${RESET} 5hr ${SURFACE}${rate}%${RESET}"
 fi
 
+# Reasoning effort (only present on models that support it). Color escalates
+# with cost: high is yellow, xhigh/max are red.
+effort=$(echo "$input" | jq -r '.effort.level // ""')
+effort_segment=""
+if [[ -n "$effort" ]]; then
+  case "$effort" in
+    xhigh|max) effort_color="$RED"     ;;
+    high)      effort_color="$YELLOW"  ;;
+    *)         effort_color="$SURFACE" ;;
+  esac
+  effort_segment=" ${SURFACE}·${RESET} ${effort_color}${effort}${RESET}"
+fi
+
 # Bondage pin status (cached, 5-min TTL). Re-runs `bondage doctor` only when
 # the cache is missing or older than 300s; status line refreshes too often
 # to hash binaries on every render.
@@ -70,14 +83,23 @@ if command -v bondage &>/dev/null; then
       echo "stale" > "$bondage_cache"
     fi
   fi
-  case "$(cat "$bondage_cache" 2>/dev/null)" in
-    clean) bondage_segment=" ${SURFACE}·${RESET} bnd ${GREEN}●${RESET}"  ;;
-    stale) bondage_segment=" ${SURFACE}·${RESET} bnd ${RED}●${RESET}"    ;;
-    *)     bondage_segment=" ${SURFACE}·${RESET} bnd ${YELLOW}●${RESET}" ;;
+  bondage_status="$(cat "$bondage_cache" 2>/dev/null)"
+  case "$bondage_status" in
+    clean) dot_color="$GREEN"  ;;
+    stale) dot_color="$RED"    ;;
+    *)     dot_color="$YELLOW" ;;
   esac
+  # Pulse anything that isn't clean/green: dim the dot on alternating seconds so
+  # a stale or errored pin blinks to draw attention. The status line re-renders
+  # often enough that this animates without any timer of our own.
+  if [[ "$bondage_status" != clean ]] && (( $(date +%s) % 2 == 0 )); then
+    dot_color="$SURFACE"
+  fi
+  bondage_segment=" ${SURFACE}·${RESET} bondage ${dot_color}●${RESET}"
 fi
 
 printf "${MAUVE}%s${RESET}" "$model"
+printf "%s" "$effort_segment"
 printf " ${SURFACE}·${RESET} ${BLUE}%s${RESET}" "$dir"
 printf " ${SURFACE}·${RESET} ctx ${ctx_color}%s%%%s ${SURFACE}%s${RESET}" "$ctx" "$RESET" "$bar"
 printf " ${SURFACE}·${RESET} ${PEACH}\$%s${RESET}" "$cost"
