@@ -44,5 +44,6 @@
       }
     }
   },
+  "effortLevel": "medium",
   "editorMode": "vim"
 }
