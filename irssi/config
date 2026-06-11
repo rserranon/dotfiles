@@ -1,0 +1,39 @@
+servers = (
+  {
+    address = "irc.libera.chat";
+    chatnet = "Libera";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  Libera = {
+    type = "IRC";
+    nick = "b101";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "b101";
+    # sasl_password is injected at runtime from $LIBERA_SASL_PASSWORD by
+    # scripts/autorun/sasl_from_env.pl — never store it here (this file is
+    # tracked in git).
+  };
+};
+
+channels = (
+  { name = "#bitcoin-core-dev"; chatnet = "Libera"; autojoin = "yes"; }
+);
+
+settings = {
+  core = {
+    real_name = "b101";
+    user_name = "b101";
+    nick = "b101";
+    # Disable autosave so irssi never rewrites this tracked file on its own
+    # (and never persists the runtime SASL password into the repo). Use an
+    # explicit /save only when you intend to commit config changes.
+    settings_autosave = "no";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+};

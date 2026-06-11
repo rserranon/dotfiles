@@ -120,6 +120,18 @@ if [ -f "$COPILOT_INSTRUCTIONS" ]; then
   success "Copilot custom instructions linked"
 fi
 
+# --- irssi (IRC client) ---
+# Not stowed: irssi's home is ~/.irssi (not XDG). Symlink the tracked files
+# into a real ~/.irssi so irssi's own runtime files stay out of the repo.
+IRSSI_DIR="$HOME/.irssi"
+if [ -f "$DOTFILES_DIR/irssi/config" ]; then
+  mkdir -p "$IRSSI_DIR/scripts/autorun"
+  ln -sf "$DOTFILES_DIR/irssi/config" "$IRSSI_DIR/config"
+  ln -sf "$DOTFILES_DIR/irssi/scripts/autorun/sasl_from_env.pl" \
+    "$IRSSI_DIR/scripts/autorun/sasl_from_env.pl"
+  success "irssi config linked"
+fi
+
 # --- Git hooks ---
 HOOKS_DIR="$DOTFILES_DIR/.git/hooks"
 if [ -d "$HOOKS_DIR" ]; then
