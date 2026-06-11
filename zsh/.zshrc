@@ -19,7 +19,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # Disable claude autoupdater
-DISABLE_AUTOUPDATER=1
+export DISABLE_AUTOUPDATER=1
 
 # --- Bondage pin drift heartbeat ---
 # Stale pins only surface when `claude` refuses to launch; this runs `bondage
