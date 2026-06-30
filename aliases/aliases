@@ -91,3 +91,17 @@ alias cc="claude"
 alias ccc="claude --continue"
 alias ccr="claude --resume"
 alias ccp="claude --print"
+
+# Update Claude Code and repin under bondage in one step.
+# Uses the real launcher (bypasses the sandboxed alias) to install the new
+# version, re-points the bondage target at the launcher symlink just long
+# enough for repin to resolve it (bondage repin always canonicalizes the
+# symlink back to the concrete versions/X.Y.Z path; there is no
+# --no-canonicalize flag), then repins and verifies.
+claude-update() {
+  local conf="$HOME/.config/bondage/bondage.conf"
+  "$HOME/.local/bin/claude" update || return
+  sed -i '' 's#^target = .*#target = '"$HOME"'/.local/bin/claude#' "$conf"
+  bondage repin claude "$conf"
+  bondage doctor "$conf"
+}

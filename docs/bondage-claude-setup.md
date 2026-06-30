@@ -168,13 +168,50 @@ to the new version directory first, then repin.
 
 ## Updating Claude Code
 
-Auto-update is disabled. To pull a new version:
+Auto-update is disabled. The one-step way is the `claude-update` shell function
+(defined in `aliases/aliases`):
 
-1. Update Claude Code through whatever its update mechanism is. New versions
-   appear as new directories under `~/.local/share/claude/versions/`.
-2. Edit `~/.config/bondage/bondage.conf` and update the `target = ...` line
-   in `[defaults "claude-target"]` to the new version directory.
-3. Run the maintenance loop above to repin and verify.
+```bash
+claude-update    # install new version + repin + doctor, all at once
+```
+
+It runs `~/.local/bin/claude update` (the **real launcher**, bypassing the
+sandboxed `claude` alias — the sandbox can't write to `~/.local/state/claude/`),
+then repins and verifies.
+
+### Why you can't just `claude update` through the alias
+
+The `claude` alias routes through bondage → nono. The nono profile does not
+grant write access to `~/.local/state/claude/`, so the in-sandbox updater fails
+with `EPERM: ... mkdir '.../locks'`. Always update via the full launcher path
+(`~/.local/bin/claude update`) or the `claude-update` function, never the alias.
+
+If `claude update` fails with `EEXIST: ... mkdir '.../locks'`, an empty stale
+lock dir is in the way. Remove it and retry: `rmdir ~/.local/state/claude/locks`.
+
+### Why the target ends up as a concrete version path, not the symlink
+
+`bondage repin` **always canonicalizes symlinks** — there is no
+`--no-canonicalize` flag (`bondage repin` only takes `<profile> [config]`). So
+even if you set `target = ~/.local/bin/claude`, repin rewrites it back to the
+resolved `~/.local/share/claude/versions/X.Y.Z`. That means a bare `repin` after
+an update re-hashes the *old* concrete path and reports a false `clean`.
+
+The `claude-update` function works around this by re-pointing `target` at the
+launcher symlink immediately before repin, so repin resolves it to the new
+version. After repin the target is the new concrete path again — expected.
+
+### Manual equivalent
+
+If you'd rather do it by hand:
+
+1. `~/.local/bin/claude update` — new version lands under
+   `~/.local/share/claude/versions/` and `~/.local/bin/claude` repoints to it.
+2. Edit `~/.config/bondage/bondage.conf`, set the `target = ...` line in
+   `[defaults "claude-target"]` to the new version directory.
+3. `bondage repin claude ~/.config/bondage/bondage.conf` then
+   `bondage doctor ...` — confirm `status: clean` **and** that the `target` and
+   `target_fp` lines actually changed to the new version.
 
 ## Troubleshooting
 
