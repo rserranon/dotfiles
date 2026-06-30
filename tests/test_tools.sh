@@ -20,7 +20,8 @@ INSTALLED_FORMULAS=$(brew list --formula 2>/dev/null)
 INSTALLED_CASKS=$(brew list --cask 2>/dev/null)
 
 check_formula() {
-  if echo "$INSTALLED_FORMULAS" | grep -qx "$1"; then
+  # brew list --formula prints leaf names; Brewfile may tap-qualify (tap/name)
+  if echo "$INSTALLED_FORMULAS" | grep -qx "${1##*/}"; then
     pass "brew: $1"
   else
     fail "brew: $1 — not installed"
